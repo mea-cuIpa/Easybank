@@ -1,0 +1,14 @@
+{
+  "name": "easybank",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass SCSS/main.scss CSS/style.css -w"
+  },
+  "author": "Andrew",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^5.0.0"
+  }
+}

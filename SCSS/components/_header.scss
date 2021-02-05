@@ -1,0 +1,128 @@
+.header {
+  //Hamburguer Open Styles
+  &.open {
+    .header__toggle {
+      > span:first-child {
+        transform: rotate(45deg);
+      }
+
+      > span:nth-child(2) {
+        opacity: 0;
+      }
+
+      > span:last-child {
+        transform: rotate(-45deg);
+      }
+    }
+
+    .overlay {
+      display: block;
+
+      @include breakpoint-up(large) {
+        display: none;
+      }
+    }
+  }
+
+  .overlay {
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient($darkBlue, transparent);
+  }
+
+  nav {
+    position: relative;
+    background: $white;
+    padding-top: 1.0625rem;
+    padding-bottom: 1.0625rem;
+  }
+
+  &__logo {
+    img {
+      width: 8.8123rem; // 141/16 = 8.8123rem
+      height: 1.375rem; // 22/16 = 1.375rem
+    }
+  }
+
+  // Mobile toggle
+  &__toggle {
+    > span {
+      display: block;
+      width: 26px;
+      height: 2px;
+      background-color: $darkBlue;
+      transition: all 300ms ease-in-out;
+      transform-origin: 3px 1px;
+
+      &:not(:last-child) {
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  &__links {
+    a {
+      position: relative;
+      font-size: $font-sm;
+      color: $grayishBlue;
+      font-size: 0.875rem; // 14/16 = 0.875rem
+      transition: color 300ms ease-in-out;
+
+      &:not(:last-child) {
+        margin-right: 2rem;
+      }
+
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        height: 5px;
+        left: 0px;
+        right: 0px;
+        bottom: -30px;
+        background: linear-gradient(to right, $limeGreen, $brightCyan);
+        opacity: 0;
+        transition: opacity 300ms ease-in-out;
+      }
+
+      &:hover {
+        color: $darkBlue;
+
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &__menu {
+    opacity: 0;
+    position: absolute;
+    height: 16.5625rem;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 1.5625rem;
+    border-radius: 0.3125rem;
+    background: $white;
+    z-index: 2;
+
+    ul {
+      height: 12.1875rem;
+      margin: 2.1875rem 0rem;
+    }
+
+    li {
+      line-height: 2.4375rem;
+      flex: 1;
+    }
+
+    a {
+      color: $darkBlue;
+      margin: auto 0;
+    }
+  }
+}
